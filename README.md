@@ -1,34 +1,34 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
 
-# What is Tiny Tapeout?
+### Wokwi
+https://wokwi.com/projects/347140425276981843
 
-TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip!
+Customizable UART Transmitter (inspired by @maehw)
 
-Go to https://tinytapeout.com for instructions!
+Supports ASCII characters from 0x40 (@) to 0x5F (_), including capital letters from the latin alphabet.
 
-## How to change the Wokwi project
+**How to use**
 
-Edit the [info.yaml](info.yaml) and change the wokwi_id to match your project.
+Example Sending 'A'
+1. Set the Arduino serial baud rate `Serial.begin(<baud rate>);` in the *.ino file to 300
+2. Set the Wokwi clock frequency `"attrs": { "frequency": "300" }` in the diagram.json to 300 as well
+3. Set SW7 to OFF ("Load")
+4. Set SW2 to ON and SW3-6 to OFF
+5. Set SW7 to ON ("TX")
+6. Set SW8 to ON ("Output Enable")
 
-## How to enable the GitHub actions to build the ASIC files
+If there's no output from the Wokwi Arduino serial monitor, try toggling SW7 OFF and ON again.
 
-Please see the instructions for:
+Congratulations! You should now see the letter being output in the Wokwi Arduino Serial monitor at the bottom of the simulation.
 
-* [Enabling GitHub Actions](https://tinytapeout.com/faq/#when-i-commit-my-change-the-gds-action-isnt-running)
-* [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
-
-## How does it work?
-
-When you edit the info.yaml to choose a different ID, the [GitHub Action](.github/workflows/gds.yaml) will fetch the digital netlist of your design from Wokwi.
-
-After that, the action uses the open source ASIC tool called [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/) to build the files needed to fabricate an ASIC.
-
-## Resources
-
-* [FAQ](https://tinytapeout.com/faq/)
-* [Digital design lessons](https://tinytapeout.com/digital_design/)
-* [Join the community](https://discord.gg/rPK2nSjxy8)
-
-## What next?
-
-* Share your GDS on Twitter, tag it [#tinytapeout](https://twitter.com/hashtag/tinytapeout?src=hashtag_click) and [link me](https://twitter.com/matthewvenn)!
+Note that garbage characters may be printed upon initialization.
+| SW      | Function| 
+|---------|---------|
+| 1       | N/A     | 
+| 2       | Bit 0   | 
+| 3       | Bit 1   |
+| 4       | Bit 2   | 
+| 5       | Bit 3   | 
+| 6       | Bit 4   |
+| 7       | Load/TX | 
+| 8       | Out. En.| 
