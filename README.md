@@ -3,7 +3,7 @@
 ### Wokwi
 https://wokwi.com/projects/347140425276981843
 
-Customizable UART Transmitter (inspired by @maehw)
+## UART Single Character Transmitter (inspired by @maehw)
 
 Supports ASCII characters from 0x40 (@) to 0x5F (_), including capital letters from the latin alphabet.
 
